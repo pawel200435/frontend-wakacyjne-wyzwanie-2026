@@ -1,8 +1,15 @@
 import { Sun } from 'lucide-react'
 import './App.css'
+import { ProjectCard } from './ProjectCard'
 
 function App() {
-  
+  const TITLE = 'ProjectCard';
+  const DESCRIPTION = 'Simple ProjectCard';
+  const TECHNOLOGIES_LIST = [
+    {id: '1', name: 'HTML'},
+    {id: '2', name: 'CSS'},
+    {id: '3', name: 'JavaScript'}
+  ];
 
   return (
     <>
@@ -13,7 +20,7 @@ function App() {
       <main className='flex justify-center items-center text-center py-16 px-8'>
         <section className='flex flex-col justify-center items-center border border-gray-200 rounded-lg p-16 shadow-sm w-full max-w-3xl'>
           <h2>Zadanie domowe</h2>
-
+            <ProjectCard title={TITLE} description={DESCRIPTION} technologies={TECHNOLOGIES_LIST} />
         </section>
       </main>
 
