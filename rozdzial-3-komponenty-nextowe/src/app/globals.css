@@ -10,6 +10,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-kablammo: var(--font-kablammo);
+  --font-handjet: var(--font-handjet);
 }
 
 @media (prefers-color-scheme: dark) {
