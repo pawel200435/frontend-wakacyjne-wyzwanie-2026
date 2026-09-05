@@ -10,16 +10,11 @@ export default function Loading() {
             key={key}
             className="border rounded-xl p-4 shadow-xs flex flex-col justify-between min-h-[260px] bg-card"
           >
-            {/* Avatar */}
             <Skeleton className="size-24 rounded-full mx-auto mb-4" />
-
-            {/* Nagłówki */}
             <div className="flex flex-col items-center gap-2 mb-6">
               <Skeleton className="h-6 w-3/4" />
               <Skeleton className="h-4 w-1/2" />
             </div>
-
-            {/* Przycisk */}
             <Skeleton className="h-10 w-full rounded-md mt-auto" />
           </div>
         ))}

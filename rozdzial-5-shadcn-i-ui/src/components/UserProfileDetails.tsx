@@ -1,6 +1,14 @@
 import { User } from "@/src/types/User";
 import Image from "next/image";
 import PizzaIcon from "@/src/components/PizzaIcon";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/src/components/ui/card";
+
 
 interface UserProfileDetailsProps {
   user: User;
@@ -10,7 +18,7 @@ export function UserProfileDetails({ user }: UserProfileDetailsProps) {
   const { name, role, likesPizza, avatarUrl, description } = user;
 
   return (
-    <div className="@container relative max-w-full h-full flex flex-col min-h-64 rounded-md border overflow-hidden">
+    <Card className="@container relative max-w-full h-full flex flex-col min-h-64 overflow-hidden border shadow-sm p-0 gap-0">
       <div className="relative w-full h-32 @lg:h-48 rounded-inherit">
         <div className="absolute inset-0 z-1 bg-blue-300" />
 
@@ -19,15 +27,28 @@ export function UserProfileDetails({ user }: UserProfileDetailsProps) {
         </div>
       </div>
 
-      <div className="w-full grid grid-cols-2 p-4 pt-12 @lg:pt-16 bg-white">
-        {likesPizza && <div className="ml-auto row-span-2 col-start-2 size-10 grid place-items-center rounded-full">
-            <PizzaIcon />
-        </div>}
+      <CardHeader className="w-full pt-12 @lg:pt-16 px-6 pb-2 grid grid-cols-[1fr_auto] items-start">
+        <div className="space-y-1">
+          <CardTitle className="font-semibold text-xl @md:text-2xl leading-tight">
+            {name}
+          </CardTitle>
+          <CardDescription className="text-muted-foreground text-sm @md:text-base">
+            {role}
+          </CardDescription>
+        </div>
 
-        <h1 className="row-start-1 col-start-1 font-semibold text-xl @md:text-2xl">{name}</h1>
-        <span className="row-start-2 col-start-1 text-muted-foreground">{role}</span>
-        <p className="mt-2 text-muted-foreground col-span-full @lg:max-w-md">{description}</p>
-      </div>
-    </div>
+        {likesPizza && (
+          <div className="size-10 grid place-items-center rounded-full bg-amber-50 text-amber-600 shadow-xs">
+            <PizzaIcon />
+          </div>
+        )}
+      </CardHeader>
+
+      <CardContent className="px-6 pb-6 pt-2">
+        <p className="text-muted-foreground text-sm leading-relaxed @lg:max-w-md">
+          {description}
+        </p>
+      </CardContent>
+    </Card>
   )
 }
