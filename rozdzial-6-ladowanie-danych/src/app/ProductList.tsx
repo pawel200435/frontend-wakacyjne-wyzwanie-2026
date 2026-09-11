@@ -10,6 +10,7 @@ import { ProductEmptyState } from "@/components/product-empty-state";
 import { ProductCardSkeleton, ProductListSkeleton } from "@/components/product-card-skeleton";
 import { Search } from "lucide-react";
 import { Input } from "@base-ui/react";
+import { NewProduct } from "./newProduct";
 
 interface ProductsListProps {
   initialData: ProductsResponse;
@@ -55,10 +56,7 @@ export default function ProductsList({ initialData }: ProductsListProps) {
     <section className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Produkty</h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Przeglądaj dostępne produkty z katalogu
-          </p>
+          <h1 className="text-3xl font-bold tracking-tight">Sklep</h1>
         </div>
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
@@ -67,13 +65,15 @@ export default function ProductsList({ initialData }: ProductsListProps) {
             placeholder="Szukaj produktów..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-9"
+            className="pl-9 border-b"
           />
         </div>
         <span className="text-sm font-medium text-muted-foreground">
           Znaleziono: {data?.products.length ?? 0}
         </span>
       </div>
+
+      <NewProduct />
 
         {(isLoading || !data) && (
             <ProductListSkeleton count={8} />
