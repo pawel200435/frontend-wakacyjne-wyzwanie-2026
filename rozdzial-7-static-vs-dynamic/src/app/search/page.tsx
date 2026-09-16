@@ -1,9 +1,17 @@
 import Link from "next/link";
-
+import type { Metadata } from "next";
 import { ProductCard } from "@/components/product-card";
 import { ProductEmptyState } from "@/components/product-empty-state";
 import { ProductGrid } from "@/components/product-grid";
 import { searchProducts } from "@/lib/products";
+
+export const metadata: Metadata = {
+  title: "Wyniki wyszukiwania",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>;
