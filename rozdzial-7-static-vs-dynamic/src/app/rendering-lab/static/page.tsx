@@ -1,4 +1,5 @@
 import { CurrentTimeCard } from "@/components/current-time-card";
+export const dynamic = 'force-static';
 
 export default function StaticPage() {
   return (
